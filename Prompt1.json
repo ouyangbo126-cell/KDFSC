@@ -1,0 +1,92 @@
+Aircraft Carriers:
+- Essex class {US-CV10, US-CV12, US-CV16, US-CV41}
+- Nimitz class {US-CVN68, US-CVN69, US-CVN70, US-CVN71, US-CVN72, US-CVN73, US-CVN74, US-CVN75, US-CVN76, US-CVN77}
+- Ford class {US-CVN78, US-CVN79}
+- Forrestal class {US-CV59, US-CV61, US-CV62}
+- Kitty Hawk class {US-CV63, US-CV64, US-CV65}
+- John F. Kennedy {US-CV67}
+- Type 001 {CN-CV16}
+- Type 002 {CN-CV17}
+- Kiev class {CN-CV_Minsk，IN-R33}
+- Vikrant class {IN-IAC1， IN-R11}
+- Invincible class {UK-R06, UK-R07}
+- Queen Elizabeth class {UK-R08, UK-R09}
+- Charles de Gaulle {FR-R91}
+- Giuseppe Garibaldi {IT-CV551}
+- Cavour {IT-CV550}
+- Chakri Naruebet {TH-CV911}
+- Admiral Lazarev {RU-CV063}
+- Colossus class {BR-A11}
+- Clemenceau {BR-A12}
+- IW class {IN-IW}
+- UK03 (Invincible subclass) {UK/BR-L12}
+Amphibious Assault Ships:
+- Wasp class {US-LHD1, US-LHD2, US-LHD3, US-LHD4, US-LHD5, US-LHD6, US-LHD7, US-LHD8}
+- America class {US-LHA6}
+- Mistral class {EG-L1010, EG-L1020, FR-L9015}
+- Canberra class {AU-L02}
+- Dokdo class {KR-LPH6111}
+- Izumo class {JP-DDH183, JP-DDH184}
+- Hyūga class {JP-DDH181, JP-DDH182}
+- Atlântico (A140) {BR-A140}
+Please complete only the values inside square brackets [ ]. Follow these strict rules:
+- If any detail is not visible or cannot be confidently determined, write: unknown
+- For ship length and deck width: use integer meters (±5 m error allowed)
+- Hull number is typically a pure number (e.g., 68 for CVN-68).
+- Confidence values must be in [0.00, 1.00], rounded to two decimal places
+- Identification: Only select ship IDs from the provided 60 categories (e.g., CN-CV16, US-CV10, etc.). Do not use IDs outside of this list.
+Output format:
+(vessel,
+    overall_appearance,
+        deck_type: [angled deck | full-length deck | helicopter platform | unknown],
+        island_location: [e.g., starboard midship | starboard stern | dual island | unknown],
+        estimated_length_m: [integer meters or unknown],
+        estimated_width_m: [integer meters or unknown]
+        // Example:
+        // deck_type: full-length deck
+        // island_location: starboard midship
+        // estimated_length_m: 240
+        // estimated_deck_width_m: 38
+)
+(vessel,
+    detailed_configuration,
+        hull_number_location: [e.g., bow | stern | starboard | unknown],
+        hull_number: [visible number | unknown],
+        number_of_elevators: [integer | unknown],
+        elevator_location: [e.g., forward of island, left side | forward of island, right side | unknown | or other valid descriptions]
+        helicopter_platform_distribution: [e.g., side, left | side, right | unknown | or other valid descriptions]
+        embarked_aircraft_model: [specific model or unknown],
+        // Example:
+        // hull_number_location: bow
+        // hull_number: 550
+        // number_of_elevators: 2
+        // elevator_location: forward of island
+        // helicopter_platform_distribution: front
+        // embarked_aircraft_model: J-15
+)
+(vessel,
+    surrounding_environment,
+        cloud_coverage: [dense | sparse | none | unknown],
+        surrounding_facilities: [dry dock | exhibition area | naval base | open sea | unknown]
+        // Example:
+        // cloud_coverage: none
+        // surrounding_facilities: naval base
+)
+(vessel,
+    geographic_location,
+        country: [country name or unknown],
+        port: [port name or unknown]
+        // Example:
+        // country: Italy
+        // port: Taranto
+)
+(vessel,
+    overall_assessment_top3,
+        identification_1: [ship_id], confidence_1: [0.00–1.00],
+        identification_2: [ship_id], confidence_2: [0.00–1.00],
+        identification_3: [ship_id], confidence_3: [0.00–1.00]
+        // Example:
+        // identification_1: [Aircraft Carriers][Essex class][US-CV10], confidence_1: 0.55
+        // identification_2: [Aircraft Carriers][Kitty Hawk class][US-CV63], confidence_2: 0.35
+        // identification_3: [Amphibious Assault][Wasp class][US-LHD1], confidence_3: 0.10
+)
