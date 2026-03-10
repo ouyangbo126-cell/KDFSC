@@ -1,0 +1,60 @@
+You are given some text describing a military ship. Analyze it and extract the following features.
+Each attribute is encoded as a number. Combine values if needed (e.g., elevator locations 1 and 2 become 12).
+At the end, output a single Python-style list, and only the list (no explanation, no extra text).
+Field order:
+1. deck_type: 0 [unknown], 1 [full-length deck], 2 [angled deck]
+2. island_location: 0 [unknown], 1 [forward starboard mid], 2 [mid starboard], 3 [aft starboard mid], 4 [dual islands]
+3. estimated_length_m: numeric value or 0 if unknown
+4. estimated_width_m: numeric value or 0 if unknown
+5. hull_number_location: 0 [unknown], 1 [bow], 2 [stern], 3 [island]
+6. hull_number: 0 [unknown] or actual number
+7. number_of_elevators: 0 [unknown] or actual count
+8. elevator_location: 0 [unknown], 1 [starboard forward], 2 [starboard aft], 3 [port center], 4 [starboard center]; combinations like 1 and 2 → 12
+9. helicopter_platform_distribution: 0 [unknown], 1 [concentrated], 2 [dispersed]
+10. embarked_aircraft_model: 0 [unknown], 1 [AV-8B Harrier II], 2 [CH-46/CH-53-type helicopters], 3 [E-2 Hawkeye], 4 [F-14 Tomcat],
+    5 [F-4 Phantom (museum static)], 6 [F/A-18 Hornet], 7 [Harrier AV-8S or SH-60B (cannot confirm precisely)], 8 [J-15],
+    9 [MV-22 Osprey], 10 [MiG-29K], 11 [SH-3 Sea King], 12 [SH-60K], 13 [SH-60K or unknown], 14 [Sea Harrier], 15 [Su-33],
+    16 [UH-60-type helicopters], 17 [mixed museum aircraft (e.g., F-14)], 18 [mixed museum aircraft (e.g., F/A-18, A-4, F-14)],
+    19 [mixed museum display (e.g., F/A-18, F-14, A-4)], 20 [static museum aircraft (e.g., F/A-18, F-14)]
+11. visibility: 1 [good], 2 [moderate], 3 [poor]
+12. surrounding_facilities: 0 [unknown], 1 [dry dock], 2 [naval base], 3 [ship exhibition], 4 [open sea]
+13. port: 0 [unknown], 1 [Alameda], 2 [Alexandria], 3 [Bremerton], 4 [Busan], 5 [Changi], 6 [Charleston], 7 [Corpus Christi],
+    8 [Dalian], 9 [Devonport], 10 [Everett], 11 [Jinhae], 12 [Karwar], 13 [Kochi], 14 [Kure], 15 [Maizuru], 16 [Mayport],
+    17 [Mumbai], 18 [Murmansk], 19 [Newport News], 20 [Norfolk], 21 [Pearl Harbor], 22 [Philadelphia], 23 [Portsmouth],
+    24 [Qingdao], 25 [Rio de Janeiro], 26 [San Diego], 27 [Sanya], 28 [Sasebo], 29 [Sattahip], 30 [Seattle], 31 [Severomorsk],
+    32 [Shenzhen], 33 [Taranto], 34 [Tianjin], 35 [Toulon], 36 [Yokosuka]
+14-19. Top 3 ship categories and their confidences, format:
+    ship_category_1, confidence_1, ship_category_2, confidence_2, ship_category_3, confidence_3
+    Categories:
+    1 [US-CV10], 2 [US-CV12], 3 [US-CV16], 4 [US-CV41], 5 [US-CVN68], 6 [US-CVN69], 7 [US-CVN70], 8 [US-CVN71],
+    9 [US-CVN72], 10 [US-CVN73], 11 [US-CVN74], 12 [US-CVN75], 13 [US-CVN76], 14 [US-CVN77], 15 [US-CVN78], 16 [US-CVN79],
+    17 [US-CV59], 18 [US-CV61], 19 [US-CV62], 20 [US-CV63], 21 [US-CV64], 22 [US-CV65], 23 [US-CV67], 24 [CN-CV16],
+    25 [CN-CV17], 26 [CN-CV_Minsk], 27 [R33], 28 [IN-IAC1], 29 [IN-R11], 30 [UK-R06], 31 [UK-R07], 32 [UK-R08],
+    33 [UK-R09], 34 [FR-R91], 35 [IT-CV551], 36 [IT-CV550], 37 [TH-CV911], 38 [RU-CV063], 39 [BR-A11], 40 [BR-A12],
+    41 [IN-IW], 42 [UK/BR-L12], 43 [US-LHD1], 44 [US-LHD2], 45 [US-LHD3], 46 [US-LHD4], 47 [US-LHD5], 48 [US-LHD7],
+    49 [US-LHD8], 50 [US-LHA6], 51 [EG-L1010], 52 [EG-L1020], 53 [FR-L9015], 54 [AU-L02], 55 [KR-LPH6111],
+    56 [JP-DDH183], 57 [JP-DDH184], 58 [JP-DDH181], 59 [JP-DDH182], 60 [BR-A140]
+Example input (for your understanding only):
+{
+  "deck_type": 1,
+  "island_location": 2,
+  "estimated_length_m": 255,
+  "estimated_width_m": 32,
+  "hull_number_location": 0,
+  "hull_number": 0,
+  "number_of_elevators": 2,
+  "elevator_location": 12,
+  "helicopter_platform_distribution": 2,
+  "embarked_aircraft_model": 0,
+  "visibility": 1,
+  "surrounding_facilities": 2,
+  "port": 26,
+  "top_3_categories": [
+    {"ship_category": 44, "confidence": 0.45},
+    {"ship_category": 48, "confidence": 0.30},
+    {"ship_category": 46, "confidence": 0.25}
+  ]
+}
+Example output:
+[1, 2, 255, 32, 0, 0, 2, 12, 2, 0, 1, 2, 26, 44, 0.45, 48, 0.30, 46, 0.25]
+Your task: Given a text describing a ship, extract and output the list as above.
