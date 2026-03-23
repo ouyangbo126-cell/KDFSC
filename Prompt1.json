@@ -39,7 +39,7 @@ Output format:
 (vessel,
     overall_appearance,
         deck_type: [angled deck | full-length deck | helicopter platform | unknown],
-        island_location: [e.g., starboard midship | starboard stern | dual island | unknown],
+        island_position: [e.g., starboard midship | starboard stern | dual island | unknown],
         estimated_length_m: [integer meters or unknown],
         estimated_width_m: [integer meters or unknown]
         // Example:
