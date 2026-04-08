@@ -1,0 +1,53 @@
+port_dict = {
+            "Busan Naval Base": (129.0433179, 35.1035725),
+            "Changi": (104.0256028, 1.3202668),
+            "Alexander": (29.8581576, 31.1901641),
+            "Dalian Port": (121.6612366, 38.9383918),
+            "Everett": (-122.2286151, 47.984855),
+            "Hebi": (135.3730436, 35.4769478),
+            "Jinhae Naval Base": (128.6389822, 35.1497727),
+            "Kaamba": (74.1420705, 14.7726255),
+            "Lexington": (-97.3894329, 27.816035),
+            "Mumbai": (72.8503197, 18.9601194),
+            "Murmansk": (33.0644539, 68.9799089),
+            "Norfolk Dockyard 1": (-76.2975999, 36.8161942),
+            "North Island Naval Air Station": (-117.1889449, 32.7124003),
+            "Pearl Harbor 1": (-157.9520793, 21.3538283),
+            "Philadelphia": (-75.0769647, 39.9816701),
+            "Plymouth Naval Harbor": (-4.1887608, 50.387151),
+            "Portsmouth": (-1.097232, 50.8091807),
+            "Qingdao Port": (120.2572932, 35.9980611),
+            "San Francisco": (-122.4425391, 37.8070301),
+            "Sanya Xingang": (109.4903022, 18.2324735),
+            "Sasebo Base": (129.7172609, 33.1639522),
+            "Sattahip Port": (100.9143178, 12.6279829),
+            "South Carolina": (-79.9422911, 32.8325373),
+            "Taranto 1": (17.2122624, 40.4737909),
+            "Tianjin Museum": (117.743651, 38.9834576),
+            "Toulon": (5.9324234, 43.1165805),
+            "Wu Zhen": (132.6054154, 34.2193785),
+            "Yokosuka": (139.7205442, 35.2404437),
+            "bremerton base": (-122.6200587, 47.563737),
+            "cochin port": (76.265535, 9.959162),
+            "mayport base": (-81.4108004, 30.3902302),
+            "newport news shipyard": (-76.4393137, 36.9808101),
+            "norfolk naval base": (-76.3317281, 36.9439594),
+            "pearl harbor 2": (-157.9906082, 21.3804226),
+            "rio de janeiro": (-43.1723951, -22.8939789),
+            "san diego naval base": (-117.1612597, 32.6782089)
+        }
+
+region_dict = {
+            # Region 0: US East Coast (7 ports)
+            "US East Coast": (-80.4126, 34.5373),
+            # Region 1: East Asia (10 ports)
+            "East Asia": (126.4251, 34.0506),
+            # Region 2: Europe & Mediterranean (6 ports)
+            "Europe Mediterranean": (13.4636, 47.4928),
+            # Region 3: US West Coast & Pacific (7 ports)
+            "US West Pacific": (-131.0834, 34.4972),
+            # Region 4: Indian Ocean & SE Asia (5 ports)
+            "Indian SE Asia": (85.6396, 11.5280),
+            # Region 5: South America (1 port)
+            "South America": (-43.1724, -22.8940),
+        }'
